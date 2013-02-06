@@ -8,12 +8,19 @@
                              Storyboard.TargetName="RotateArrow" 
                                     Storyboard.TargetProperty="Angle"></DoubleAnimation>
         </Storyboard>
+
+        <Style x:Key="Triggers" TargetType="{x:Type Label}">
+            <Style.Triggers>
+                <Trigger Property="Label.IsMouseOver" Value="true">
+                    <Setter Property = "Foreground" Value="Firebrick"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid Width="266" Height="294">
-
         <Grid Height="23" Width="256" VerticalAlignment="Bottom" Margin="5" HorizontalAlignment="Left" MouseDown="Grid_MouseDown" MouseUp="Grid_MouseUp">
             <Rectangle Height="23" Width="0" Margin="0" HorizontalAlignment="Left" VerticalAlignment="top" Fill="LightPink" Name="rectangleSpeed"></Rectangle>
-            <Label Content="Жми" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Жми" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Triggers}"/>
         </Grid>
         <Grid Height="256" HorizontalAlignment="Left" Name="gridDrum" Margin="5" VerticalAlignment="Top" Width="256">
             <Image Height="256" HorizontalAlignment="Left"  Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="256"  />
@@ -23,5 +30,6 @@
                 </Rectangle.RenderTransform>
             </Rectangle>
         </Grid>
+        
     </Grid>
 </Window>
